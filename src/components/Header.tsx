@@ -3,10 +3,11 @@ import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
 import cartImg from '../images/icon-cart.svg';
 import Nav from './Nav';
+import Basket from './Basket';
 
 const Header: FC = () => {
   return (
-    <header className='flex justify-between p-5'>
+    <header className='flex justify-between p-5 relative w-full'>
       <div className='flex items-center gap-4'>
         <Nav />
         <img src={logo} alt='logo' />
@@ -19,8 +20,11 @@ const Header: FC = () => {
             3
           </span>
         </button>
-        <img src={avatar} alt='avatar picture' className='w-7' />
+        <button type='button'>
+          <img src={avatar} alt='avatar picture' className='w-7' />
+        </button>
       </div>
+      <Basket />
     </header>
   );
 };

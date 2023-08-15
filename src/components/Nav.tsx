@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import menuBar from '../images/icon-menu.svg';
 import { links } from '../data';
-//just use react icons so much easier for menu bar
 
 const Nav: FC = () => {
   return (
@@ -11,9 +10,9 @@ const Nav: FC = () => {
       </button>
       {/* desktop links */}
       <ul className='hidden tablet:flex gap-4 font-bold text-darkGrayBlue'>
-        {links.map((link) => {
+        {links.map((link, index) => {
           return (
-            <li key={link}>
+            <li key={index}>
               <a href='#'>{link}</a>
             </li>
           );
