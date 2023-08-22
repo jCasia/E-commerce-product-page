@@ -1,4 +1,4 @@
 export interface LightboxProps {
-  images: string[];
   imagesThumbnail: string[];
+  images: string[];
 }
