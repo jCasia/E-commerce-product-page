@@ -7,7 +7,10 @@ import Basket from './Basket';
 import { useCartContext } from '../hooks/useCartContext';
 
 const Header: FC = () => {
-  const { toggleCart } = useCartContext();
+  const {
+    toggleCart,
+    state: { cart },
+  } = useCartContext();
 
   return (
     <header className='flex justify-between p-5 relative w-full'>
@@ -18,11 +21,14 @@ const Header: FC = () => {
       <div className='flex items-center justify-end flex-1 gap-4 '>
         <button type='button' className='relative' onClick={toggleCart}>
           <img src={cartImg} alt='cart logo' className='w-full' />
-          {/* conditional, show only if there is anything in cart */}
-          <span className='absolute -top-1.5 -right-1.5 font-bold bg-colorOrange text-colorWhite text-[.6rem] w-5 rounded-3xl'>
-            3
+
+          <span
+            className={`absolute -top-1.5 -right-1.5 font-bold bg-colorOrange text-colorWhite text-[.6rem] w-5 rounded-3xl ${
+              cart.length >= 1 ? 'opacity-1 visible' : 'opacity-0 invisible'
+            }`}
+          >
+            {cart.length}
           </span>
-          {/*  */}
         </button>
         <button type='button'>
           <img src={avatar} alt='avatar picture' className='w-7' />

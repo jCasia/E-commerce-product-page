@@ -1,18 +1,32 @@
 import { FC } from 'react';
 import deleteImg from '../images/icon-delete.svg';
-import dummyImg from '../images/image-product-1-thumbnail.jpg';
+import { useCartContext } from '../hooks/useCartContext';
+import { reducedPrice } from '../utils/helpers';
 
 const BasketItem: FC = () => {
+  const {
+    state: { cart },
+    removeItem,
+  } = useCartContext();
+  const { name, image, price, amount, discount } = cart[0];
+
   return (
     <div className='flex items-center gap-4'>
-      <img src={dummyImg} alt='dummyImg' className='w-2/12 rounded-md' />
+      <img src={image} alt='dummyImg' className='w-2/12 rounded-md' />
       <div className='flex-1'>
-        <p>Fall Limited Edition Sneakers</p>
+        <p>{name}</p>
         <p>
-          $125.00 x 3 <span className='font-bold'>$375.00</span>
+          £{reducedPrice(price, discount).toFixed(2)} x {amount}
+          <span className='font-bold ml-1'>
+            £{(reducedPrice(price, discount) * amount).toFixed(2)}
+          </span>
         </p>
       </div>
-      <button type='button' aria-label='delete'>
+      <button
+        type='button'
+        aria-label='delete'
+        onClick={() => removeItem(name)}
+      >
         <img src={deleteImg} alt='delete' />
       </button>
     </div>

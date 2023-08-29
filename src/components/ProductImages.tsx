@@ -1,17 +1,16 @@
 import { FC, useState } from 'react';
-import { imagesThumbnail } from '../data';
-import { images } from '../data';
+import { data } from '../data';
 import rightArrow from '../images/icon-next.svg';
 import leftArrow from '../images/icon-previous.svg';
 import LightBox from './LightBox';
 import { useCartContext } from '../hooks/useCartContext';
 
+const { images, imagesThumbnail } = data[0];
+
 const ProductImages: FC = () => {
   const { openLightbox } = useCartContext();
   const [main, setMain] = useState(images[0]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  console.log(currentSlideIndex);
-  console.log(main);
 
   const changeImg = (index: number): void => {
     setMain(images[index]);
