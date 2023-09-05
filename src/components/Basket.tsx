@@ -18,7 +18,7 @@ const Basket: FC = () => {
       ></div>
 
       <div
-        className={`absolute z-10 top-20 right-2 w-[95%] bg-white px-4 pb-7 pt-4 rounded-lg flex flex-col gap-5 justify-center shadow-lg transition-all duration-300 ${
+        className={`absolute z-10 top-20 right-2 w-[95%] bg-white px-4 pb-7 pt-4 rounded-lg flex flex-col gap-5 justify-center shadow-2xl mtablet:w-3/5 mtablet:shadow-2xl mtablet:top-18 tablet:w-1/2 slaptop:w-2/5 laptop:w-4/12 laptop:-right-10 slaptop:px-5 transition-all duration-300 ${
           isCartOpen ? 'opacity-1 visible' : 'opacity-0 invisible'
         }`}
       >

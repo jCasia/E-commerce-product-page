@@ -52,7 +52,11 @@ const reducer = (state: StateType, action: ReducerAction): StateType => {
     return { ...state, amount: state.amount + 1 };
   }
   if (action.type === REDUCER_ACTION_TYPE.DECREASE) {
-    return { ...state, amount: state.amount - 1 };
+    let tempAmount = state.amount - 1;
+    if (state.amount === 1) {
+      tempAmount = 1;
+    }
+    return { ...state, amount: tempAmount };
   }
 
   if (action.type === REDUCER_ACTION_TYPE.ADD_TO_CART) {
@@ -72,7 +76,7 @@ const reducer = (state: StateType, action: ReducerAction): StateType => {
           }
         });
 
-        return { ...state, cart: tempCart };
+        return { ...state, cart: tempCart, amount: 1 };
       } else {
         const newItem = {
           name: name,
@@ -81,7 +85,7 @@ const reducer = (state: StateType, action: ReducerAction): StateType => {
           amount: amount,
           discount: discount,
         };
-        return { ...state, cart: [...state.cart, newItem] };
+        return { ...state, cart: [...state.cart, newItem], amount: 1 };
       }
     }
   }

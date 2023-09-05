@@ -7,10 +7,9 @@ import SideBar from './components/SideBar';
 const App: FC = () => {
   return (
     <>
-      {/* may need to use portal for the lightbox carousel */}
       <Header />
       <SideBar />
-      <main>
+      <main className='flex flex-col max-w-sm mx-auto stablet:py-5 slaptop:max-w-[1020px] slaptop:flex-row slaptop:py-20 slaptop:mx-6 slaptop:gap-16 laptop:mx-auto   '>
         <ProductImages />
         <ProductInfo />
       </main>

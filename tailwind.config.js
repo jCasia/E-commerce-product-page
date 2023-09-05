@@ -17,7 +17,13 @@ export default {
         fontKumbh: ['Kumbh Sans', 'sans-serif'],
       },
       screens: {
+        smobile: '290px',
+        mmobile: '325px',
+        stablet: '400px',
+        mtablet: '500px',
         tablet: '700px',
+        slaptop: '945px',
+        laptop: '1150px',
       },
     },
   },

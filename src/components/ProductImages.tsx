@@ -14,6 +14,7 @@ const ProductImages: FC = () => {
 
   const changeImg = (index: number): void => {
     setMain(images[index]);
+    setCurrentSlideIndex(index);
   };
 
   const nextSlide = (): void => {
@@ -36,7 +37,7 @@ const ProductImages: FC = () => {
         <img
           src={main}
           alt='test'
-          className='object-cover max-w-full'
+          className='object-cover max-w-full cursor-pointer stablet:rounded-2xl'
           onClick={openLightbox}
         />
         <button
@@ -58,14 +59,18 @@ const ProductImages: FC = () => {
           />
         </button>
       </div>
-      <div className='hidden tablet:flex gap-3 justify-center'>
+      <div className='hidden tablet:flex gap-3 justify-center slaptop:justify-between slaptop:gap-0'>
         {imagesThumbnail.map((image, index) => {
           return (
             <img
               src={image}
               alt={image}
               key={index}
-              className='w-16 rounded-lg cursor-pointer'
+              className={`w-16 rounded-lg cursor-pointer ${
+                index === currentSlideIndex
+                  ? 'border border-colorOrange contrast-50 saturate-150'
+                  : ''
+              } hover:contrast-50 hover:saturate-150 transition-all duration:300 slaptop:w-20 `}
               onClick={() => changeImg(index)}
             />
           );

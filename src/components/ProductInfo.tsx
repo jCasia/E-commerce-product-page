@@ -7,20 +7,24 @@ const { name, description, price, discount, imagesThumbnail } = data[0];
 
 const ProductInfo: FC = () => {
   return (
-    <div className='flex flex-col gap-2 p-5'>
-      <p className='font-bold text-colorOrange uppercase'>Sneaker Company</p>
-      <h2 className='font-bold text-veryDarkBlue text-3xl'>{name}</h2>
+    <div className='flex flex-col gap-2 p-5 slaptop:gap-6 slaptop:py-12 px-9 '>
+      <p className='font-bold text-colorOrange uppercase slaptop:text-[.95rem]'>
+        Sneaker Company
+      </p>
+      <h2 className='font-bold text-veryDarkBlue text-3xl slaptop:text-[2.75rem] slaptop:leading-[2.75rem] slaptop:mb-2'>
+        {name}
+      </h2>
       <p className='text-darkGrayBlue'>{description}</p>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center slaptop:flex-col slaptop:items-start slaptop:gap-1'>
         <div className='flex gap-4 items-center'>
-          <p className='text-2xl font-bold'>
+          <p className='text-2xl font-bold slaptop:text-3xl'>
             £{reducedPrice(price, discount).toFixed(2)}
           </p>
           <p className='font-bold bg-paleOrange text-colorOrange px-1.5 rounded-lg'>
             {discount}%
           </p>
         </div>
-        <p className='text-grayBlue line-through'>{price.toFixed(2)}</p>
+        <p className='text-grayBlue line-through '>£{price.toFixed(2)}</p>
       </div>
       <AddToCart
         name={name}

@@ -10,7 +10,7 @@ import imgT4 from './images/image-product-4-thumbnail.jpg';
 
 const imagesThumbnail: string[] = [imgT1, imgT2, imgT3, imgT4];
 const images: string[] = [img1, img2, img3, img4];
-const links: string[] = ['Collections', 'Mens', 'Women', 'About', 'Contact'];
+const links: string[] = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
 interface DataInterface {
   id: string;
